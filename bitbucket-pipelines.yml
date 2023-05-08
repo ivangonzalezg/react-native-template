@@ -1,0 +1,12 @@
+image: node:16
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Code linting
+          script:
+            - npm install eslint
+            - npm run lint
+          caches:
+            - node

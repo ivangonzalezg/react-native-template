@@ -1,0 +1,15 @@
+name: Code linting
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+jobs:
+  code-linting:
+    name: Code linting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm install eslint
+      - run: npm run lint
