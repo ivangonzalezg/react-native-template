@@ -7,6 +7,8 @@ import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactActivityDelegate;
 
+import org.devio.rn.splashscreen.SplashScreen;
+
 public class MainActivity extends ReactActivity {
 
     /**
@@ -38,5 +40,6 @@ public class MainActivity extends ReactActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SplashScreen.show(this, R.style.AppTheme, false);
     }
 }
