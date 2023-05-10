@@ -1,4 +1,5 @@
 import { createContext } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import constants from "../constants";
 
 const { USER, JWT, IS_LOGGED_IN } = constants.state;
@@ -33,18 +34,20 @@ const stateReducer = (prevState, action) => {
         user: action.user,
       };
     case JWT:
+      AsyncStorage.setItem(JWT, action.jwt);
       return {
         ...prevState,
         jwt: action.jwt,
       };
     case IS_LOGGED_IN:
-      if (action.isLoggedIn) {
-        return {
-          ...prevState,
-          isLoggedIn: true,
-        };
+      if (!action.isLoggedIn) {
+        AsyncStorage.removeItem(JWT);
+        return initialState;
       }
-      return initialState;
+      return {
+        ...prevState,
+        isLoggedIn: true,
+      };
     default:
       return prevState;
   }
