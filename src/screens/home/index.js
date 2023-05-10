@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -16,9 +17,11 @@ import {
 } from "react-native/Libraries/NewAppScreen";
 import Section from "../../components/section";
 import styles from "./styles";
+import { ProgressContext } from "../../contexts";
 
 function HomeScreen() {
   const isDarkMode = useColorScheme() === "dark";
+  const progress = useContext(ProgressContext);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -29,6 +32,13 @@ function HomeScreen() {
       <StatusBar
         barStyle={isDarkMode ? "light-content" : "dark-content"}
         backgroundColor={backgroundStyle.backgroundColor}
+      />
+      <Button
+        title="Mostrar progress dialog"
+        onPress={() => {
+          progress.showProgressDialog("Hello world");
+          setTimeout(progress.hideProgressDialog, 1000);
+        }}
       />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
