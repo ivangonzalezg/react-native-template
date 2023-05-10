@@ -15,8 +15,9 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from "react-native/Libraries/NewAppScreen";
-import Section from "../../components/section";
+import AntDesign from "react-native-vector-icons/AntDesign";
 import styles from "./styles";
+import Section from "../../components/section";
 import { ProgressContext } from "../../contexts";
 
 function HomeScreen() {
@@ -40,6 +41,7 @@ function HomeScreen() {
           setTimeout(progress.hideProgressDialog, 1000);
         }}
       />
+      <AntDesign name="stepforward" size={30} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
