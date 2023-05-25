@@ -5,12 +5,8 @@ import React, {
   useReducer,
   useState,
 } from "react";
-import {
-  NavigationContainer,
-  useNavigationContainerRef,
-} from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useFlipper } from "@react-navigation/devtools";
 import SplashScreen from "react-native-splash-screen";
 
 import HomeScreen from "./screens/home";
@@ -46,15 +42,12 @@ function Root() {
 }
 
 function App() {
-  const navigationRef = useNavigationContainerRef();
   const [isSplashScreen, setIsSplashScreen] = useState(true);
   const [state, dispatchState] = useReducer(stateReducer, initialState);
   const [progress, dispatchProgress] = useReducer(
     progressReducer,
     initialProgress,
   );
-
-  useFlipper(navigationRef);
 
   useEffect(() => {
     async function initialize() {
@@ -100,7 +93,7 @@ function App() {
   return (
     <StateContext.Provider value={stateContext}>
       <ProgressContext.Provider value={progressContext}>
-        <NavigationContainer ref={navigationRef}>
+        <NavigationContainer>
           <Root />
         </NavigationContainer>
         <ProgressDialog visible={progress.visible} label={progress.label} />

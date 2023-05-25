@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "638981802418",
+    "project_id": "rntemplate-30fbd",
+    "storage_bucket": "rntemplate-30fbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638981802418:android:2b1df6aa1915e00b14fcab",
+        "android_client_info": {
+          "package_name": "com.rntemplate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638981802418-oc0h91au53388adbfp1iepk9sdejfa08.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBF7HP2R1-llqoI4Epzn8n4t7Glp_0ewmI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638981802418-oc0h91au53388adbfp1iepk9sdejfa08.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
