@@ -39,7 +39,7 @@ function ProgressDialog(props) {
             size={Platform.select({ android: 45, default: "large" })}
             color="#398377"
           />
-          <Text style={styles.text}>{label}...</Text>
+          <Text style={styles.text}>{label || "Loading"}...</Text>
         </View>
       </View>
     </View>
