@@ -21,8 +21,11 @@ import styles from "./styles";
 import Section from "../../components/section";
 import { ProgressContext } from "../../contexts";
 import api from "../../api";
+import { useNavigation } from "@react-navigation/native";
+import { routes } from "../../routes";
 
 function HomeScreen() {
+  const navigation = useNavigation();
   const isDarkMode = useColorScheme() === "dark";
   const progress = useContext(ProgressContext);
 
@@ -53,6 +56,10 @@ function HomeScreen() {
         }}
       />
       <Button title="Petición https" onPress={getUser} />
+      <Button
+        title="Cambiar vista"
+        onPress={() => navigation.navigate(routes.home)}
+      />
       <AntDesign name="stepforward" size={30} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"

@@ -8,6 +8,7 @@ import React, {
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SplashScreen from "react-native-splash-screen";
+import analytics from "@react-native-firebase/analytics";
 
 import HomeScreen from "./screens/home";
 import { routes } from "./routes";
@@ -48,6 +49,7 @@ function App() {
     progressReducer,
     initialProgress,
   );
+  const [previousRouteName, setPreviousRouteName] = useState("");
 
   useEffect(() => {
     async function initialize() {
@@ -71,7 +73,6 @@ function App() {
       updateJwt: (jwt) => dispatchState({ type: JWT, jwt }),
       updateIsLoggedIn: (isLoggedIn) =>
         dispatchState({ type: IS_LOGGED_IN, isLoggedIn }),
-
       ...state,
     }),
     [state],
@@ -86,6 +87,17 @@ function App() {
     [],
   );
 
+  const onStateChange = (params) => {
+    const currentRouteName = params.routes[params.index].name.toLowerCase();
+    if (currentRouteName !== previousRouteName) {
+      setPreviousRouteName(currentRouteName);
+      analytics().logScreenView({
+        screen_name: currentRouteName,
+        screen_class: currentRouteName,
+      });
+    }
+  };
+
   if (isSplashScreen) {
     return null;
   }
@@ -93,7 +105,7 @@ function App() {
   return (
     <StateContext.Provider value={stateContext}>
       <ProgressContext.Provider value={progressContext}>
-        <NavigationContainer>
+        <NavigationContainer onStateChange={onStateChange}>
           <Root />
         </NavigationContainer>
         <ProgressDialog visible={progress.visible} label={progress.label} />
