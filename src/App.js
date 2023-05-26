@@ -9,6 +9,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SplashScreen from "react-native-splash-screen";
 import analytics from "@react-native-firebase/analytics";
+import remoteConfig from "@react-native-firebase/remote-config";
 
 import HomeScreen from "./screens/home";
 import { routes } from "./routes";
@@ -55,8 +56,9 @@ function App() {
     async function initialize() {
       try {
         // Set up or get initial data, for example: get user info or request some permissions
-        setIsSplashScreen(false);
+        await remoteConfig().fetchAndActivate();
       } catch (error) {}
+      setIsSplashScreen(false);
     }
     initialize();
   }, []);

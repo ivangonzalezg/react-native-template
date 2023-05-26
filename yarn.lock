@@ -1452,7 +1452,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@react-native-async-storage/async-storage@^1.18.1":
+"@react-native-async-storage/async-storage@1.18.1":
   version "1.18.1"
   resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.18.1.tgz#b1aea4f07fb1dba3325b857b770671517ddab221"
   integrity sha512-70aFW8fVCKl+oA1AKPFDpE6s4t9pulj2QeLX+MabEmzfT3urd/3cckv45WJvtocdoIH/oXA3Y+YcCRJCcNa8mA==
@@ -1662,6 +1662,11 @@
   version "17.4.3"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/perf/-/perf-17.4.3.tgz#7e961e6264cb49ae1ace11787e16335d7ac57924"
   integrity sha512-XB0N7gugsVbCaauP2U6x6xKIKK8EqvSef81GCIGrpN6JADABqu2Nt9ZP9N1M0C/QKQxtF6fSZUp3cGq1Nsx63g==
+
+"@react-native-firebase/remote-config@17.4.3":
+  version "17.4.3"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/remote-config/-/remote-config-17.4.3.tgz#04fa98c77a565e82ed0ff72b5cf4b09b49ea30f6"
+  integrity sha512-fls5vMhN8xteSaiWzRwxZE01n+MJZihsmVG6eD70yNkEGjtHtyO1EddMKBX5pSNB9SfZy89kaKC7bz7uuD0xzw==
 
 "@react-native/assets@1.0.0":
   version "1.0.0"

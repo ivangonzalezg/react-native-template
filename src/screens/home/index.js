@@ -17,6 +17,7 @@ import {
   ReloadInstructions,
 } from "react-native/Libraries/NewAppScreen";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import remoteConfig from "@react-native-firebase/remote-config";
 import styles from "./styles";
 import Section from "../../components/section";
 import { ProgressContext } from "../../contexts";
@@ -49,16 +50,25 @@ function HomeScreen() {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <Button
-        title="Mostrar progress dialog"
+        title="Show progress dialog"
         onPress={() => {
           progress.showProgressDialog("Hello world");
           setTimeout(progress.hideProgressDialog, 1000);
         }}
       />
-      <Button title="Petición https" onPress={getUser} />
+      <Button title="Https request" onPress={getUser} />
       <Button
-        title="Cambiar vista"
+        title="Change screen"
         onPress={() => navigation.navigate(routes.home)}
+      />
+      <Button
+        title="Get remote config"
+        onPress={() =>
+          Alert.alert(
+            "Response",
+            JSON.stringify(remoteConfig().getAll(), null, 2),
+          )
+        }
       />
       <AntDesign name="stepforward" size={30} />
       <ScrollView
@@ -66,9 +76,7 @@ function HomeScreen() {
         style={backgroundStyle}>
         <Header />
         <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
+          style={{ backgroundColor: isDarkMode ? Colors.black : Colors.white }}>
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.

@@ -19,7 +19,10 @@ PODS:
   - Firebase/Performance (10.7.0):
     - Firebase/CoreOnly
     - FirebasePerformance (~> 10.7.0)
-  - FirebaseABTesting (10.9.0):
+  - Firebase/RemoteConfig (10.7.0):
+    - Firebase/CoreOnly
+    - FirebaseRemoteConfig (~> 10.7.0)
+  - FirebaseABTesting (10.10.0):
     - FirebaseCore (~> 10.0)
   - FirebaseAnalytics (10.7.0):
     - FirebaseAnalytics/AdIdSupport (= 10.7.0)
@@ -62,7 +65,7 @@ PODS:
     - GoogleUtilities/ISASwizzler (~> 7.8)
     - GoogleUtilities/MethodSwizzler (~> 7.8)
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - FirebaseRemoteConfig (10.9.0):
+  - FirebaseRemoteConfig (10.7.0):
     - FirebaseABTesting (~> 10.0)
     - FirebaseCore (~> 10.0)
     - FirebaseInstallations (~> 10.0)
@@ -490,6 +493,10 @@ PODS:
     - Firebase/Performance (= 10.7.0)
     - React-Core
     - RNFBApp
+  - RNFBRemoteConfig (17.4.3):
+    - Firebase/RemoteConfig (= 10.7.0)
+    - React-Core
+    - RNFBApp
   - RNScreens (3.20.0):
     - React-Core
     - React-RCTImage
@@ -537,6 +544,7 @@ DEPENDENCIES:
   - "RNFBAnalytics (from `../node_modules/@react-native-firebase/analytics`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBPerf (from `../node_modules/@react-native-firebase/perf`)"
+  - "RNFBRemoteConfig (from `../node_modules/@react-native-firebase/remote-config`)"
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -640,6 +648,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBPerf:
     :path: "../node_modules/@react-native-firebase/perf"
+  RNFBRemoteConfig:
+    :path: "../node_modules/@react-native-firebase/remote-config"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   Yoga:
@@ -651,14 +661,14 @@ SPEC CHECKSUMS:
   FBLazyVector: a89a0525bc7ca174675045c2b492b5280d5a2470
   FBReactNativeSpec: 7714e6bc1e9ea23df6c4cb42f0b2fd9c6a3a559c
   Firebase: 0219acf760880eeec8ce479895bd7767466d9f81
-  FirebaseABTesting: 005b70969e2817e2a1e631e8dba29134a04c0622
+  FirebaseABTesting: b2a87808d90f02766fcffb3957d3e397e7accc15
   FirebaseAnalytics: f8133442ee6f8512e28ff19e62ce15398bfaeace
   FirebaseCore: e317665b9d744727a97e623edbbed009320afdd7
   FirebaseCoreExtension: d3e9bba2930a8033042112397cd9f006a1bb203d
   FirebaseCoreInternal: d2b4acb827908e72eca47a9fd896767c3053921e
   FirebaseInstallations: c58489c9caacdbf27d1da60891a87318e20218e0
   FirebasePerformance: 8281bbaf08aad194001018b932115b7d58a6f00b
-  FirebaseRemoteConfig: 5ea5834e8c518f377bf1af2d97ebd611914ebf2d
+  FirebaseRemoteConfig: d5de62211e2eaa2152d8ee85a23c301b70887a74
   FirebaseSessions: 44a6782502eb279a214d4adca20891353278760c
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
@@ -703,6 +713,7 @@ SPEC CHECKSUMS:
   RNFBAnalytics: e794cd8afc8d1b8fc450b193f51cdf7a7c26ea90
   RNFBApp: 922564a99c97a8cab366d5a918f9fecff6b563d5
   RNFBPerf: 0b3c9d6c70812765d2800b2ebad5dcfca9b36423
+  RNFBRemoteConfig: 515b9b5419e059cfce6b70e06e55d2cbb7eadb74
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   Yoga: d56980c8914db0b51692f55533409e844b66133c
 
