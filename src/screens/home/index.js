@@ -19,6 +19,7 @@ import {
 import AntDesign from "react-native-vector-icons/AntDesign";
 import remoteConfig from "@react-native-firebase/remote-config";
 import crashlytics from "@react-native-firebase/crashlytics";
+import database from "@react-native-firebase/database";
 import styles from "./styles";
 import Section from "../../components/section";
 import { ProgressContext } from "../../contexts";
@@ -74,6 +75,19 @@ function HomeScreen() {
       <Button
         title="Crash test"
         onPress={() => crashlytics().log("Crash test")}
+      />
+      <Button
+        title="Check realtime database"
+        onPress={() =>
+          database()
+            .ref()
+            .once("value", (snapshot) =>
+              Alert.alert(
+                "Realtime database",
+                JSON.stringify(snapshot.val(), null, 2),
+              ),
+            )
+        }
       />
       <AntDesign name="stepforward" size={30} />
       <ScrollView

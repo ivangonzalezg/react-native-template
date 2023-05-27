@@ -19,6 +19,9 @@ PODS:
   - Firebase/Crashlytics (10.7.0):
     - Firebase/CoreOnly
     - FirebaseCrashlytics (~> 10.7.0)
+  - Firebase/Database (10.7.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 10.7.0)
   - Firebase/Performance (10.7.0):
     - Firebase/CoreOnly
     - FirebasePerformance (~> 10.7.0)
@@ -61,6 +64,9 @@ PODS:
     - GoogleUtilities/Environment (~> 7.8)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (~> 2.1)
+  - FirebaseDatabase (10.7.0):
+    - FirebaseCore (~> 10.0)
+    - leveldb-library (~> 1.22)
   - FirebaseInstallations (10.9.0):
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
@@ -139,6 +145,7 @@ PODS:
   - hermes-engine (0.71.7):
     - hermes-engine/Pre-built (= 0.71.7)
   - hermes-engine/Pre-built (0.71.7)
+  - leveldb-library (1.22.2)
   - libevent (2.1.12)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
@@ -505,6 +512,10 @@ PODS:
     - FirebaseCoreExtension (= 10.7.0)
     - React-Core
     - RNFBApp
+  - RNFBDatabase (17.4.3):
+    - Firebase/Database (= 10.7.0)
+    - React-Core
+    - RNFBApp
   - RNFBPerf (17.4.3):
     - Firebase/Performance (= 10.7.0)
     - React-Core
@@ -560,6 +571,7 @@ DEPENDENCIES:
   - "RNFBAnalytics (from `../node_modules/@react-native-firebase/analytics`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBCrashlytics (from `../node_modules/@react-native-firebase/crashlytics`)"
+  - "RNFBDatabase (from `../node_modules/@react-native-firebase/database`)"
   - "RNFBPerf (from `../node_modules/@react-native-firebase/perf`)"
   - "RNFBRemoteConfig (from `../node_modules/@react-native-firebase/remote-config`)"
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -574,6 +586,7 @@ SPEC REPOS:
     - FirebaseCoreExtension
     - FirebaseCoreInternal
     - FirebaseCrashlytics
+    - FirebaseDatabase
     - FirebaseInstallations
     - FirebasePerformance
     - FirebaseRemoteConfig
@@ -582,6 +595,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
+    - leveldb-library
     - libevent
     - nanopb
     - PromisesObjC
@@ -666,6 +680,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBCrashlytics:
     :path: "../node_modules/@react-native-firebase/crashlytics"
+  RNFBDatabase:
+    :path: "../node_modules/@react-native-firebase/database"
   RNFBPerf:
     :path: "../node_modules/@react-native-firebase/perf"
   RNFBRemoteConfig:
@@ -687,6 +703,7 @@ SPEC CHECKSUMS:
   FirebaseCoreExtension: f17247ba8c61e4d3c8d136b5e2de3cb4ac6a85b6
   FirebaseCoreInternal: d2b4acb827908e72eca47a9fd896767c3053921e
   FirebaseCrashlytics: 35fdd1a433b31e28adcf5c8933f4c526691a1e0b
+  FirebaseDatabase: 06195bac336b5e4c893ec04a111631a4cdb00178
   FirebaseInstallations: c58489c9caacdbf27d1da60891a87318e20218e0
   FirebasePerformance: 8281bbaf08aad194001018b932115b7d58a6f00b
   FirebaseRemoteConfig: d5de62211e2eaa2152d8ee85a23c301b70887a74
@@ -697,6 +714,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: f0308f5905a745f94fb91fea9c6cbaf3831cb1bd
   GoogleUtilities: 9aa0ad5a7bc171f8bae016300bfcfa3fb8425749
   hermes-engine: 4438d2b8bf8bebaba1b1ac0451160bab59e491f8
+  leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
@@ -734,6 +752,7 @@ SPEC CHECKSUMS:
   RNFBAnalytics: e794cd8afc8d1b8fc450b193f51cdf7a7c26ea90
   RNFBApp: 922564a99c97a8cab366d5a918f9fecff6b563d5
   RNFBCrashlytics: fbad0177b4603cd964364e3206a158fe5b3862c8
+  RNFBDatabase: d95bb192261afe3efa847b9a12029fc364c094a2
   RNFBPerf: 0b3c9d6c70812765d2800b2ebad5dcfca9b36423
   RNFBRemoteConfig: 515b9b5419e059cfce6b70e06e55d2cbb7eadb74
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
