@@ -18,6 +18,7 @@ import {
 } from "react-native/Libraries/NewAppScreen";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import remoteConfig from "@react-native-firebase/remote-config";
+import crashlytics from "@react-native-firebase/crashlytics";
 import styles from "./styles";
 import Section from "../../components/section";
 import { ProgressContext } from "../../contexts";
@@ -69,6 +70,10 @@ function HomeScreen() {
             JSON.stringify(remoteConfig().getAll(), null, 2),
           )
         }
+      />
+      <Button
+        title="Crash test"
+        onPress={() => crashlytics().log("Crash test")}
       />
       <AntDesign name="stepforward" size={30} />
       <ScrollView
