@@ -20,6 +20,7 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import remoteConfig from "@react-native-firebase/remote-config";
 import crashlytics from "@react-native-firebase/crashlytics";
 import database from "@react-native-firebase/database";
+import storage from "@react-native-firebase/storage";
 import styles from "./styles";
 import Section from "../../components/section";
 import { ProgressContext } from "../../contexts";
@@ -88,6 +89,15 @@ function HomeScreen() {
               ),
             )
         }
+      />
+      <Button
+        title="Get storage file link"
+        onPress={() => {
+          storage()
+            .ref("foto-test.png")
+            .getDownloadURL()
+            .then((url) => Alert.alert("Storage", url));
+        }}
       />
       <AntDesign name="stepforward" size={30} />
       <ScrollView
