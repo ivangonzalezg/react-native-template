@@ -27,6 +27,7 @@ import { ProgressContext } from "../../contexts";
 import api from "../../api";
 import { useNavigation } from "@react-navigation/native";
 import { routes } from "../../routes";
+import services from "../../services";
 
 function HomeScreen() {
   const navigation = useNavigation();
@@ -52,57 +53,72 @@ function HomeScreen() {
         barStyle={isDarkMode ? "light-content" : "dark-content"}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <Button
-        title="Show progress dialog"
-        onPress={() => {
-          progress.showProgressDialog("Hello world");
-          setTimeout(progress.hideProgressDialog, 1000);
-        }}
-      />
-      <Button title="Https request" onPress={getUser} />
-      <Button
-        title="Change screen"
-        onPress={() => navigation.navigate(routes.home)}
-      />
-      <Button
-        title="Get remote config"
-        onPress={() =>
-          Alert.alert(
-            "Response",
-            JSON.stringify(remoteConfig().getAll(), null, 2),
-          )
-        }
-      />
-      <Button
-        title="Crash test"
-        onPress={() => crashlytics().log("Crash test")}
-      />
-      <Button
-        title="Check realtime database"
-        onPress={() =>
-          database()
-            .ref()
-            .once("value", (snapshot) =>
-              Alert.alert(
-                "Realtime database",
-                JSON.stringify(snapshot.val(), null, 2),
-              ),
-            )
-        }
-      />
-      <Button
-        title="Get storage file link"
-        onPress={() => {
-          storage()
-            .ref("foto-test.png")
-            .getDownloadURL()
-            .then((url) => Alert.alert("Storage", url));
-        }}
-      />
-      <AntDesign name="stepforward" size={30} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
+        <Button
+          title="Show progress dialog"
+          onPress={() => {
+            progress.showProgressDialog("Hello world");
+            setTimeout(progress.hideProgressDialog, 1000);
+          }}
+        />
+        <Button title="Https request" onPress={getUser} />
+        <Button
+          title="Change screen"
+          onPress={() => navigation.navigate(routes.home)}
+        />
+        <Button
+          title="Get remote config"
+          onPress={() =>
+            Alert.alert(
+              "Response",
+              JSON.stringify(remoteConfig().getAll(), null, 2),
+            )
+          }
+        />
+        <Button
+          title="Crash test"
+          onPress={() => crashlytics().log("Crash test")}
+        />
+        <Button
+          title="Check realtime database"
+          onPress={() =>
+            database()
+              .ref()
+              .once("value", (snapshot) =>
+                Alert.alert(
+                  "Realtime database",
+                  JSON.stringify(snapshot.val(), null, 2),
+                ),
+              )
+          }
+        />
+        <Button
+          title="Get storage file link"
+          onPress={() => {
+            storage()
+              .ref("foto-test.png")
+              .getDownloadURL()
+              .then((url) => Alert.alert("Storage", url));
+          }}
+        />
+        <Button
+          title="Show notification"
+          onPress={() => {
+            services.notifications.showNotificacion("Test", "Notification", {
+              ok: true,
+            });
+          }}
+        />
+        <Button
+          title="Get firebase token"
+          onPress={() => {
+            // eslint-disable-next-line no-console
+            services.notifications.getToken().then(console.log);
+          }}
+        />
+        <AntDesign name="stepforward" size={30} />
         <Header />
         <View
           style={{ backgroundColor: isDarkMode ? Colors.black : Colors.white }}>

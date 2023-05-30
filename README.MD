@@ -31,6 +31,18 @@ Follow this [guide](https://dev.to/karanpratapsingh/quick-guide-for-updating-pac
 
 Using [react-native-rename](https://github.com/junedomingo/react-native-rename). Only need to define the app name, package name for Android and Bundle Identifier for iOS
 
+## Configurations for firebase
+
+Replace the following files:
+
+1. `./ios/GoogleService-Info.plist`
+
+2. `./android/app/google-services.json`
+
+### For notifications
+
+Replace the `com.google.firebase.messaging.default_notification_channel_id` meta-data in android manifest
+
 ## Author
 
 - [**Ivan Gonzalez**](https://ivangonzalez.co) - _Full-Stack Developer_ - [ivangonzalezg](https://github.com/ivangonzalezg)
