@@ -41,7 +41,15 @@ Replace the following files:
 
 ### For notifications
 
+For android:
 Replace the `com.google.firebase.messaging.default_notification_channel_id` meta-data in android manifest
+
+For iOS:
+Follow this steps [https://rnfirebase.io/messaging/usage/ios-setup](https://rnfirebase.io/messaging/usage/ios-setup)
+
+Be careful with the bundle identifier 
+
+APN is stored in google drive
 
 ## Author
 

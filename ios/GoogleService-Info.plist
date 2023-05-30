@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>638981802418-naquqnpvsi4h8kdifpu1k8fg04c5bnp8.apps.googleusercontent.com</string>
+	<string>638981802418-75go57eai3o184633akjipmuh1sfkjv6.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.638981802418-naquqnpvsi4h8kdifpu1k8fg04c5bnp8</string>
+	<string>com.googleusercontent.apps.638981802418-75go57eai3o184633akjipmuh1sfkjv6</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCGzKzfghhpldCC7oBGxOV0_cY9geoptOk</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>org.reactjs.native.example.rntemplate</string>
+	<string>com.custint.rntemplate</string>
 	<key>PROJECT_ID</key>
 	<string>rntemplate-30fbd</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:638981802418:ios:edf26ab80709257b14fcab</string>
+	<string>1:638981802418:ios:3a20ea5d295c080614fcab</string>
+	<key>DATABASE_URL</key>
+	<string>https://rntemplate-30fbd-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>

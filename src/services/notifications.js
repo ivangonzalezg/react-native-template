@@ -1,4 +1,4 @@
-import { Alert, PermissionsAndroid } from "react-native";
+import { Alert, PermissionsAndroid, Platform } from "react-native";
 import messaging from "@react-native-firebase/messaging";
 import notifee, {
   AndroidImportance,
@@ -26,12 +26,16 @@ const showNotificacion = (title = "", body = "", data = {}) => {
 };
 
 const configure = async () => {
-  await messaging().registerDeviceForRemoteMessages();
+  if (!messaging().isDeviceRegisteredForRemoteMessages) {
+    await messaging().registerDeviceForRemoteMessages();
+  }
   await messaging().requestPermission();
   await notifee.requestPermission();
-  await PermissionsAndroid.request(
-    PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS,
-  );
+  if (Platform.OS === "android") {
+    await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS,
+    );
+  }
   await notifee.createChannel({
     id: channelId,
     name: "Default",
@@ -42,13 +46,13 @@ const configure = async () => {
     importance: AndroidImportance.HIGH,
     visibility: AndroidVisibility.PUBLIC,
   });
-  onMessage = messaging().onMessage((remoteMessage) =>
+  onMessage = messaging().onMessage((remoteMessage) => {
     showNotificacion(
       remoteMessage.notification.title,
       remoteMessage.notification.body,
       remoteMessage.data,
-    ),
-  );
+    );
+  });
   messaging().setBackgroundMessageHandler((remoteMessage) =>
     showNotificacion(
       remoteMessage.notification.title,
@@ -71,6 +75,18 @@ const configure = async () => {
   notifee.onBackgroundEvent(async ({ detail }) => {
     await notifee.cancelNotification(detail.notification.id);
   });
+  notifee
+    .getInitialNotification()
+    .then((initialNotification) =>
+      Alert.alert(
+        "Notification",
+        JSON.stringify(
+          JSON.parse(initialNotification.notification.data.data),
+          null,
+          2,
+        ),
+      ),
+    );
 };
 
 const getToken = () => messaging().getToken();
