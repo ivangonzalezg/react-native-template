@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SplashScreen from "react-native-splash-screen";
 import analytics from "@react-native-firebase/analytics";
 import remoteConfig from "@react-native-firebase/remote-config";
+import { NativeBaseProvider } from "native-base";
 
 import HomeScreen from "./screens/home";
 import { routes } from "./routes";
@@ -110,14 +111,16 @@ function App() {
   }
 
   return (
-    <StateContext.Provider value={stateContext}>
-      <ProgressContext.Provider value={progressContext}>
-        <NavigationContainer onStateChange={onStateChange}>
-          <Root />
-        </NavigationContainer>
-        <ProgressDialog visible={progress.visible} label={progress.label} />
-      </ProgressContext.Provider>
-    </StateContext.Provider>
+    <NativeBaseProvider>
+      <StateContext.Provider value={stateContext}>
+        <ProgressContext.Provider value={progressContext}>
+          <NavigationContainer onStateChange={onStateChange}>
+            <Root />
+          </NavigationContainer>
+          <ProgressDialog visible={progress.visible} label={progress.label} />
+        </ProgressContext.Provider>
+      </StateContext.Provider>
+    </NativeBaseProvider>
   );
 }
 
