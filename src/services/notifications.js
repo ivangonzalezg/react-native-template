@@ -77,15 +77,17 @@ const configure = async () => {
   });
   notifee
     .getInitialNotification()
-    .then((initialNotification) =>
-      Alert.alert(
-        "Notification",
-        JSON.stringify(
-          JSON.parse(initialNotification.notification.data.data),
-          null,
-          2,
+    .then(
+      (initialNotification) =>
+        initialNotification &&
+        Alert.alert(
+          "Notification",
+          JSON.stringify(
+            JSON.parse(initialNotification.notification.data.data),
+            null,
+            2,
+          ),
         ),
-      ),
     );
 };
 

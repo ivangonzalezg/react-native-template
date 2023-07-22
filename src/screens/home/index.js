@@ -114,8 +114,9 @@ function HomeScreen() {
         <Button
           title="Get firebase token"
           onPress={() => {
-            // eslint-disable-next-line no-console
-            services.notifications.getToken().then(console.log);
+            services.notifications
+              .getToken()
+              .then((token) => Alert.alert("Firebase token", token));
           }}
         />
         <AntDesign name="stepforward" size={30} />
