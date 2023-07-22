@@ -3,7 +3,7 @@ module.exports = {
     es6: true,
   },
   root: true,
-  extends: "@react-native-community",
+  extends: "@react-native",
   plugins: ["react", "typescript"],
   rules: {
     "react/prop-types": "error",
