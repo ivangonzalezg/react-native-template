@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createContext } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import constants from "../constants";
@@ -26,7 +27,7 @@ const StateContext = createContext({
   ...initialState,
 });
 
-const stateReducer = (prevState, action) => {
+const stateReducer = (prevState: any, action: any) => {
   switch (action.type) {
     case USER:
       return {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createContext } from "react";
 import constants from "../constants";
 
@@ -8,13 +9,13 @@ const {
 const initialProgress = {
   visible: false,
   label: "",
-  showProgressDialog: (label = "") => {},
+  showProgressDialog: (label: string = "") => {},
   hideProgressDialog: () => {},
 };
 
 const ProgressContext = createContext(initialProgress);
 
-const progressReducer = (prevState, action) => {
+const progressReducer = (prevState: any, action: any) => {
   switch (action.type) {
     case VISIBLE:
       return {

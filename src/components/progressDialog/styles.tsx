@@ -1,13 +1,15 @@
 import { Dimensions, Platform, StyleSheet } from "react-native";
 
+type Dimension = number | "100%" | undefined;
+
 const styles = StyleSheet.create({
   background: {
     position: "absolute",
-    width: Platform.select({
+    width: Platform.select<Dimension>({
       android: "100%",
       default: Dimensions.get("screen").width,
     }),
-    height: Platform.select({
+    height: Platform.select<Dimension>({
       android: "100%",
       default: Dimensions.get("screen").height,
     }),

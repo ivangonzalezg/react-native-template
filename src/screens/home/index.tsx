@@ -66,7 +66,7 @@ function HomeScreen() {
         <Button title="Https request" onPress={getUser} />
         <Button
           title="Change screen"
-          onPress={() => navigation.navigate(routes.home)}
+          onPress={() => navigation.navigate(routes.home as never)}
         />
         <Button
           title="Get remote config"

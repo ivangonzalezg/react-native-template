@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "check-types": "tsc",
     "ios": "react-native run-ios",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src --max-warnings=0",
     "start": "react-native start",
@@ -23,6 +24,7 @@
     "@react-native-firebase/storage": "17.4.3",
     "@react-navigation/native": "6.1.6",
     "@react-navigation/native-stack": "6.9.12",
+    "@types/react-native-vector-icons": "6.4.13",
     "axios": "1.4.0",
     "native-base": "3.4.28",
     "prop-types": "15.8.1",

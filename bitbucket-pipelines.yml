@@ -4,9 +4,16 @@ pipelines:
   branches:
     master:
       - step:
-          name: Code linting
+          name: Code validation - Lint
           script:
-            - npm install eslint
+            - npm install
             - npm run lint
+          caches:
+            - node
+      - step:
+          name: Code validation - Types
+          script:
+            - npm install
+            - npm run check-types
           caches:
             - node

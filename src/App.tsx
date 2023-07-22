@@ -77,9 +77,9 @@ function App() {
 
   const stateContext = useMemo(
     () => ({
-      updateUser: (user) => dispatchState({ type: USER, user }),
-      updateJwt: (jwt) => dispatchState({ type: JWT, jwt }),
-      updateIsLoggedIn: (isLoggedIn) =>
+      updateUser: (user: any) => dispatchState({ type: USER, user }),
+      updateJwt: (jwt: string) => dispatchState({ type: JWT, jwt }),
+      updateIsLoggedIn: (isLoggedIn: boolean) =>
         dispatchState({ type: IS_LOGGED_IN, isLoggedIn }),
       ...state,
     }),
@@ -91,11 +91,13 @@ function App() {
       showProgressDialog: (label = "") =>
         dispatchProgress({ type: VISIBLE, label }),
       hideProgressDialog: () => dispatchProgress({ type: HIDDEN }),
+      ...progress,
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   );
 
-  const onStateChange = (params) => {
+  const onStateChange = (params: any) => {
     const currentRouteName = params.routes[params.index].name.toLowerCase();
     if (currentRouteName !== previousRouteName) {
       setPreviousRouteName(currentRouteName);

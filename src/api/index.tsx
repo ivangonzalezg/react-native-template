@@ -3,9 +3,13 @@ import perf from "@react-native-firebase/perf";
 
 axios.interceptors.request.use(async function (config) {
   try {
-    const httpMetric = perf().newHttpMetric(config.url, config.method);
-    config.metadata = { httpMetric };
-    await httpMetric.start();
+    if (config.url && config.method) {
+      // @ts-ignore
+      const httpMetric = perf().newHttpMetric(config.url, config.method);
+      // @ts-ignore
+      config.metadata = { httpMetric };
+      await httpMetric.start();
+    }
   } finally {
     return config;
   }
@@ -14,6 +18,7 @@ axios.interceptors.request.use(async function (config) {
 axios.interceptors.response.use(
   async function (response) {
     try {
+      // @ts-ignore
       const { httpMetric } = response.config.metadata;
       httpMetric.setHttpResponseCode(response.status);
       httpMetric.setResponseContentType(response.headers["content-type"]);

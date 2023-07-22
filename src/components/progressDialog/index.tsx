@@ -10,7 +10,14 @@ import {
 } from "react-native";
 import styles from "./styles";
 
-function ProgressDialog(props) {
+export interface ProgressDialogProps {
+  label: string;
+  visible: boolean;
+}
+
+type Size = number | "small" | "large" | undefined;
+
+function ProgressDialog(props: ProgressDialogProps) {
   const { visible, label } = props;
 
   useEffect(() => {
@@ -36,7 +43,10 @@ function ProgressDialog(props) {
         <Text style={styles.title}>Please wait</Text>
         <View style={styles.row}>
           <ActivityIndicator
-            size={Platform.select({ android: 45, default: "large" })}
+            size={Platform.select<Size>({
+              android: 45,
+              default: "large",
+            })}
             color="#398377"
           />
           <Text style={styles.text}>{label || "Loading"}...</Text>

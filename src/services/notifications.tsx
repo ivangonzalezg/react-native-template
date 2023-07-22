@@ -11,7 +11,11 @@ let onForegroundEvent = () => {};
 
 const channelId = "rntemplate";
 
-const showNotificacion = (title = "", body = "", data = {}) => {
+const showNotificacion = (
+  title: string = "",
+  body: string = "",
+  data: any = {},
+) => {
   notifee.displayNotification({
     title,
     body,
@@ -48,18 +52,18 @@ const configure = async () => {
   });
   onMessage = messaging().onMessage((remoteMessage) => {
     showNotificacion(
-      remoteMessage.notification.title,
-      remoteMessage.notification.body,
+      remoteMessage?.notification?.title,
+      remoteMessage?.notification?.body,
       remoteMessage.data,
     );
   });
-  messaging().setBackgroundMessageHandler((remoteMessage) =>
+  messaging().setBackgroundMessageHandler(async (remoteMessage) => {
     showNotificacion(
-      remoteMessage.notification.title,
-      remoteMessage.notification.body,
+      remoteMessage?.notification?.title,
+      remoteMessage?.notification?.body,
       remoteMessage.data,
-    ),
-  );
+    );
+  });
   onForegroundEvent = notifee.onForegroundEvent(({ type, detail }) => {
     switch (type) {
       case EventType.DISMISSED:
@@ -67,13 +71,19 @@ const configure = async () => {
       case EventType.PRESS:
         Alert.alert(
           "Notification",
-          JSON.stringify(JSON.parse(detail.notification.data.data), null, 2),
+          JSON.stringify(
+            JSON.parse(String(detail.notification?.data?.data)),
+            null,
+            2,
+          ),
         );
         break;
     }
   });
   notifee.onBackgroundEvent(async ({ detail }) => {
-    await notifee.cancelNotification(detail.notification.id);
+    if (detail.notification?.id) {
+      await notifee.cancelNotification(detail.notification.id);
+    }
   });
   notifee
     .getInitialNotification()
@@ -83,7 +93,7 @@ const configure = async () => {
         Alert.alert(
           "Notification",
           JSON.stringify(
-            JSON.parse(initialNotification.notification.data.data),
+            JSON.parse(String(initialNotification.notification.data?.data)),
             null,
             2,
           ),
