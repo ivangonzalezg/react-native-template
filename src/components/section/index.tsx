@@ -1,10 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { View, Text, useColorScheme } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import styles from "./styles";
 
-const Section = (props) => {
+export interface ISection {
+  title: string;
+  children: any;
+}
+
+const Section: React.FC<ISection> = (props) => {
   const { children, title } = props;
   const isDarkMode = useColorScheme() === "dark";
 
@@ -26,11 +30,6 @@ const Section = (props) => {
       </Text>
     </View>
   );
-};
-
-Section.propTypes = {
-  children: PropTypes.any.isRequired,
-  title: PropTypes.string.isRequired,
 };
 
 export default Section;

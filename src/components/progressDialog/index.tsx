@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
 import {
   View,
   ActivityIndicator,
@@ -10,15 +9,15 @@ import {
 } from "react-native";
 import styles from "./styles";
 
-export interface ProgressDialogProps {
+export interface IProgressDialog {
   label: string;
   visible: boolean;
 }
 
 type Size = number | "small" | "large" | undefined;
 
-function ProgressDialog(props: ProgressDialogProps) {
-  const { visible, label } = props;
+const ProgressDialog: React.FC<IProgressDialog> = (props) => {
+  const { visible, label = "Loading" } = props;
 
   useEffect(() => {
     if (visible) {
@@ -43,26 +42,14 @@ function ProgressDialog(props: ProgressDialogProps) {
         <Text style={styles.title}>Please wait</Text>
         <View style={styles.row}>
           <ActivityIndicator
-            size={Platform.select<Size>({
-              android: 45,
-              default: "large",
-            })}
+            size={Platform.select<Size>({ android: 45, default: "large" })}
             color="#398377"
           />
-          <Text style={styles.text}>{label || "Loading"}...</Text>
+          <Text style={styles.text}>{label}...</Text>
         </View>
       </View>
     </View>
   );
-}
-
-ProgressDialog.propTypes = {
-  visible: PropTypes.bool.isRequired,
-  label: PropTypes.string,
-};
-
-ProgressDialog.defaultProps = {
-  label: "Loading",
 };
 
 export default React.memo(ProgressDialog);
