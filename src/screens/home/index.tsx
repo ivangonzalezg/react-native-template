@@ -21,6 +21,7 @@ import remoteConfig from "@react-native-firebase/remote-config";
 import crashlytics from "@react-native-firebase/crashlytics";
 import database from "@react-native-firebase/database";
 import storage from "@react-native-firebase/storage";
+import firestore from "@react-native-firebase/firestore";
 import styles from "./styles";
 import Section from "../../components/section";
 import { ProgressContext } from "../../contexts";
@@ -117,6 +118,24 @@ function HomeScreen() {
             services.notifications
               .getToken()
               .then((token) => Alert.alert("Firebase token", token));
+          }}
+        />
+        <Button
+          title="Check firestore database"
+          onPress={() => {
+            firestore()
+              .collection("test")
+              .get()
+              .then((result) =>
+                Alert.alert(
+                  "Realtime database",
+                  JSON.stringify(
+                    result.docs.map((doc) => doc.data()),
+                    null,
+                    2,
+                  ),
+                ),
+              );
           }}
         />
         <AntDesign name="stepforward" size={30} />
