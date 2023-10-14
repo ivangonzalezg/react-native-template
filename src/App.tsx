@@ -12,17 +12,17 @@ import analytics from "@react-native-firebase/analytics";
 import remoteConfig from "@react-native-firebase/remote-config";
 import { NativeBaseProvider } from "native-base";
 
-import HomeScreen from "./screens/home";
-import { routes } from "./routes";
-import { StateContext, initialState, stateReducer } from "./contexts/state";
+import HomeScreen from "@/screens/home";
+import { routes } from "@/routes";
+import { StateContext, initialState, stateReducer } from "@/contexts/state";
 import {
   ProgressContext,
   initialProgress,
   progressReducer,
-} from "./contexts/progress";
-import constants from "./constants";
-import ProgressDialog from "./components/progressDialog";
-import services from "./services";
+} from "@/contexts/progress";
+import constants from "@/constants";
+import ProgressDialog from "@/components/progressDialog";
+import services from "@/services";
 
 const Stack = createNativeStackNavigator();
 

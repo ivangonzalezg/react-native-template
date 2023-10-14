@@ -23,12 +23,12 @@ import database from "@react-native-firebase/database";
 import storage from "@react-native-firebase/storage";
 import firestore from "@react-native-firebase/firestore";
 import styles from "./styles";
-import Section from "../../components/section";
-import { ProgressContext } from "../../contexts";
-import api from "../../api";
+import Section from "@/components/section";
+import { ProgressContext } from "@/contexts";
+import api from "@/api";
 import { useNavigation } from "@react-navigation/native";
-import { routes } from "../../routes";
-import services from "../../services";
+import { routes } from "@/routes";
+import services from "@/services";
 
 function HomeScreen() {
   const navigation = useNavigation();

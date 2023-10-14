@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { createContext } from "react";
-import constants from "../constants";
+import constants from "@/constants";
 
 const {
   progress: { VISIBLE, HIDDEN },
