@@ -59,7 +59,7 @@ function App() {
       try {
         // Set up or get initial data, for example: get user info or request some permissions
         await remoteConfig().fetchAndActivate();
-        await services.notifications.configure();
+        // await services.notifications.configure();
       } catch (error) {}
       setIsSplashScreen(false);
     }
