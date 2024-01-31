@@ -4286,6 +4286,11 @@ eslint-plugin-jest@^26.5.3:
   dependencies:
     "@typescript-eslint/utils" "^5.10.0"
 
+eslint-plugin-no-comments@1.1.10:
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-no-comments/-/eslint-plugin-no-comments-1.1.10.tgz#01ce0a9bc5e386adb9b9c6762663fae65e418c67"
+  integrity sha512-hJohtfKNKDDAmhQ/VsvaN7Q41npFVBeAQISf54ywRQx7EhknF+068SPHj5g3njKMoxYAuk62ahJvJQQvMYeL7g==
+
 eslint-plugin-prettier@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-4.2.1.tgz#651cbb88b1dab98bfd42f017a12fa6b2d993f94b"
