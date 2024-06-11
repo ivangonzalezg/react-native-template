@@ -14,6 +14,11 @@ module.exports = {
       "error",
       { allow: ["TODO", "FIXME", "NOTE", "DEBUG", "eslint-disable"] },
     ],
+    curly: ["error"],
+    "react/jsx-curly-brace-presence": [
+      "error",
+      { children: "ignore", props: "never" },
+    ],
   },
   settings: {
     react: {
