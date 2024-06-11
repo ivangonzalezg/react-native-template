@@ -1,3 +1,4 @@
+/* eslint-disable no-comments/disallowComments */
 const { getDefaultConfig, mergeConfig } = require("@react-native/metro-config");
 
 /**
