@@ -4,8 +4,10 @@ import perf from "@react-native-firebase/perf";
 axios.interceptors.request.use(async function (config) {
   try {
     if (config.url && config.method) {
-      // @ts-ignore
+      // eslint-disable-next-line no-comments/disallowComments
+      // @ts-ignore NOTE
       const httpMetric = perf().newHttpMetric(config.url, config.method);
+      // eslint-disable-next-line no-comments/disallowComments
       // @ts-ignore
       config.metadata = { httpMetric };
       await httpMetric.start();
@@ -18,6 +20,7 @@ axios.interceptors.request.use(async function (config) {
 axios.interceptors.response.use(
   async function (response) {
     try {
+      // eslint-disable-next-line no-comments/disallowComments
       // @ts-ignore
       const { httpMetric } = response.config.metadata;
       httpMetric.setHttpResponseCode(response.status);
